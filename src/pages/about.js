@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "./components/Layout";
+import Layout from "../components/Layout";
 
 const About = () => {
   return (
@@ -31,7 +31,7 @@ const About = () => {
           ipsum harum id architecto sapiente, nemo ad rerum expedita? Quasi
           dolore dolores id omnis a.
         </p>
-        <p>
+        {/* <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis
           ipsum corrupti nostrum iure ipsam, unde eveniet temporibus eaque
           distinctio porro, accusamus, cum officia! Numquam, quam dolores
@@ -80,7 +80,7 @@ const About = () => {
           maiores neque nihil velit provident, voluptates eius soluta accusamus
           ipsum harum id architecto sapiente, nemo ad rerum expedita? Quasi
           dolore dolores id omnis a.
-        </p>
+        </p> */}
       </div>
     </Layout>
   );
