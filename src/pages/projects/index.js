@@ -14,3 +14,5 @@ const Projects = () => {
 };
 
 export default Projects;
+
+export const Head = () => <title>Portfolio Page | Fekadu Gatsby</title>;

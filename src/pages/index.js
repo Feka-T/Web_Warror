@@ -23,3 +23,5 @@ export default function Home() {
     </Layout>
   );
 }
+
+export const Head = () => <title>Home Page | Fekadu Gatsby</title>;
