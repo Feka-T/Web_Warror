@@ -1,12 +1,16 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
 // if you got some error like the following
 // Cannot read properties of undefined (reading 'header')
 // use the following importing styles like add (* as)
 import * as styles from "../styles/home.module.css";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-export default function Home() {
+export default function Home({ data }) {
+  console.log(data);
+  const image = getImage(data.file.childImageSharp);
+
   return (
     <Layout>
       <section className={styles.header}>
@@ -18,10 +22,20 @@ export default function Home() {
             My Portfolio Projects
           </Link>
         </div>
-        <img src="/banner.png" alt="site banner" style={{ maxWidth: "100%" }} />
+        <GatsbyImage image={image} alt="site banner" />
       </section>
     </Layout>
   );
 }
 
 export const Head = () => <title>Home Page | Fekadu Gatsby</title>;
+
+export const query = graphql`
+  query Banner {
+    file(relativePath: { eq: "banner.png" }) {
+      childImageSharp {
+        gatsbyImageData(blurredOptions: { width: 100 }, placeholder: BLURRED)
+      }
+    }
+  }
+`;
