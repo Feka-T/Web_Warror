@@ -13,3 +13,8 @@
 .featured {
   margin-bottom: 40px;
 }
+
+/* Fekadu Added */
+.details img {
+  border-radius: 10px;
+}

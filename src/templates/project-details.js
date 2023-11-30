@@ -1,26 +1,26 @@
 import React from "react";
-// import Img from "gatsby-image";
 import Layout from "../components/Layout";
 import * as styles from "../styles/project-details.module.css";
+import { graphql } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-// import { graphql } from "gatsby";
-
-const ProjectDetails = () => {
-  //   const { html } = data.markdownRemark;
-  //   const { title, stack, featuredImg } = data.markdownRemark.frontmatter;
+const ProjectDetails = ({ data }) => {
+  const { html } = data.markdownRemark;
+  const { title, stack } = data.markdownRemark.frontmatter;
+  const featuredImg = getImage(data.markdownRemark.frontmatter.featuredImg);
 
   return (
     <Layout>
       <div className={styles.details}>
-        <h2>title</h2>
-        <h3>stack</h3>
+        <h2>{title}</h2>
+        <h3>{stack}</h3>
         <div className={styles.featured}>
-          {/* <Img fluid={featuredImg.childImageSharp.fluid} /> */}
+          <GatsbyImage image={featuredImg} alt={title} />
         </div>
-        {/* <div
+        <div
           className={styles.html}
           dangerouslySetInnerHTML={{ __html: html }}
-        /> */}
+        />
       </div>
     </Layout>
   );
@@ -28,9 +28,11 @@ const ProjectDetails = () => {
 
 export default ProjectDetails;
 
-export const Head = () => <title>Project Details Page | Fekadu Gatsby</title>;
+export const Head = ({ data }) => (
+  <title>{data.markdownRemark.frontmatter.title} | Fekadu Gatsby</title>
+);
 
-/* export const query = graphql`
+export const query = graphql`
   query ProjectDetails($slug: String) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
@@ -39,12 +41,13 @@ export const Head = () => <title>Project Details Page | Fekadu Gatsby</title>;
         title
         featuredImg {
           childImageSharp {
-            fluid {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(
+              blurredOptions: { width: 100 }
+              placeholder: BLURRED
+            )
           }
         }
       }
     }
   }
-`; */
+`;
