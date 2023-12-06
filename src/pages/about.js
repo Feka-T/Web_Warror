@@ -1,5 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
+import { Link } from "gatsby";
+import * as styles from "../styles/about.module.css";
 
 const About = () => {
   return (
@@ -28,7 +30,15 @@ const About = () => {
           open.
         </p>
         <h2>Reference</h2>
-        <p>https://www.netlify.com/blog/gatsby-cloud-evolution/</p>
+        <p>
+          <Link
+            className={styles.outLink}
+            to="https://www.netlify.com/blog/gatsby-cloud-evolution/"
+            target="_blank"
+          >
+            https://www.netlify.com/blog/gatsby-cloud-evolution/
+          </Link>
+        </p>
       </div>
     </Layout>
   );

@@ -1,0 +1,10 @@
+.outLink {
+  display: inline-block;
+  margin-left: 20px;
+  font-weight: 400;
+  padding-bottom: 8px;
+  border-bottom: 3px solid transparent;
+}
+.outLink:hover {
+  border-color: white;
+}
